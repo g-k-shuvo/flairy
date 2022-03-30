@@ -1,0 +1,41 @@
+#user-list-container {
+  .heading {
+    margin-bottom: 36px;
+    h3 {
+      font-size: 20px;
+      color: #444;
+    }
+  }
+
+  .users-table {
+    overflow-x: auto;
+    table {
+      thead {
+        tr {
+          th {
+            text-align: center;
+            font-weight: 600;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            text-align: center;
+            .action-btns {
+              .action-btn {
+                background: transparent;
+              }
+              .edit {
+                margin-right: 6px;
+              }
+              .delete {
+                margin-left: 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

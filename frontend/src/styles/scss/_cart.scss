@@ -1,0 +1,105 @@
+#cart-container {
+  padding: 60px 0;
+  .cart-table {
+    tbody {
+      tr {
+        td {
+          .product-container {
+            display: flex;
+            align-items: center;
+            .product-image {
+              margin-right: 10px;
+              img {
+                width: 60px;
+                @include responsive(sm) {
+                  display: none;
+                }
+              }
+            }
+            .product-details {
+              h5 {
+                font-size: 16px;
+              }
+            }
+          }
+
+          .product-quantity {
+            .qty-selector {
+              border-radius: 0;
+              text-align: center;
+              &:focus {
+                box-shadow: none;
+              }
+            }
+          }
+
+          .product-remove {
+            text-align: center;
+            button {
+              background: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .continue-shopping-link {
+    margin-top: 20px;
+    a {
+      font-weight: 500;
+      transition: 0.2s ease-in;
+      color: #444444;
+      &:hover {
+        color: #3474d4;
+      }
+    }
+  }
+
+  .cart-summary {
+    border: 1px solid #ebebeb;
+    padding: 24px;
+    .cart-summary-container {
+      .items {
+        display: flex;
+        justify-content: space-between;
+      }
+      .tax {
+        display: flex;
+        justify-content: space-between;
+      }
+      .subtotal {
+        display: flex;
+        justify-content: space-between;
+      }
+      h4 {
+        font-size: 16px;
+        font-weight: 500;
+        color: #444444;
+      }
+      padding-bottom: 14px;
+      border-bottom: 1px solid #ebebeb;
+    }
+    .checkout-btn-container {
+      button {
+        display: block;
+        margin-top: 16px;
+        text-align: center;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-weight: 500;
+        width: 100%;
+        transition: 0.2s ease-in;
+        background: #3474d4;
+        color: #ffffff;
+        &:hover {
+          background: #444444;
+        }
+        &:disabled {
+          background: #444444;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

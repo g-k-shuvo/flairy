@@ -1,0 +1,49 @@
+#register-container {
+  .heading {
+    margin-bottom: 42px;
+    h3 {
+      text-transform: uppercase;
+      text-align: center;
+      color: #444444;
+    }
+  }
+
+  .register-form {
+    form {
+      .form-group {
+        margin-bottom: 16px;
+        input {
+          border-radius: 0px;
+        }
+      }
+      .register-btn {
+        padding: 8px 16px;
+        background: #3474d4;
+        transition: 0.2s ease-out;
+        color: #fff;
+        display: inline-block;
+
+        @include responsive(sm) {
+          display: block;
+          width: 100%;
+        }
+
+        &:hover {
+          background: #444444;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .register-footer {
+    margin-top: 16px;
+    .login-link {
+      margin-left: 6px;
+      color: #3474d4;
+      &:hover {
+        color: #444444;
+      }
+    }
+  }
+}

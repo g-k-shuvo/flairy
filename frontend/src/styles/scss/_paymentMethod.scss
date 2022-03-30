@@ -1,0 +1,18 @@
+#payment-method-container {
+  margin-top: 42px;
+  .payment-method-form-container {
+    form {
+      margin-top: 30px;
+      .form-label {
+        font-size: 20px;
+        color: #444;
+      }
+      .form-check {
+        margin-bottom: 16px;
+      }
+      button {
+        border-radius: 0px;
+      }
+    }
+  }
+}

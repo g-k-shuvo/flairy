@@ -1,0 +1,36 @@
+#order-list-container {
+  .heading {
+    margin-bottom: 36px;
+    h3 {
+      font-size: 20px;
+      color: #444;
+    }
+  }
+
+  .orders-table {
+    overflow-x: auto;
+    table {
+      thead {
+        tr {
+          th {
+            text-align: center;
+            font-weight: 600;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            text-align: center;
+            .order-details-link {
+              transition: 0.2s ease-in;
+              &:hover {
+                color: #3474d4;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

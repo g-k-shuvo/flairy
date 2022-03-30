@@ -1,0 +1,197 @@
+#order-container {
+  .order-details {
+    .order-heading {
+      h3 {
+        color: #444444;
+      }
+      margin-bottom: 20px;
+    }
+    .heading {
+      font-size: 22px;
+      color: #444444;
+      margin-bottom: 10px;
+    }
+    .shipping-info {
+      margin-bottom: 20px;
+      .user-name {
+        color: #757575;
+      }
+      .user-email {
+        color: #757575;
+      }
+      .shipping-address {
+        color: #757575;
+      }
+    }
+
+    .payment-info {
+      margin-bottom: 20px;
+      .payment-method {
+        color: #757575;
+      }
+    }
+    .order-items-info {
+      .heading {
+        margin-bottom: 30px;
+      }
+      .order-items-list {
+        ul {
+          li {
+            .order-item {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .product-details {
+                display: flex;
+                align-items: center;
+                .product-image {
+                  img {
+                    width: 50px;
+                  }
+                  margin-right: 10px;
+                }
+              }
+
+              .qty-and-total {
+                p {
+                  color: #777;
+                }
+              }
+            }
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+          }
+        }
+      }
+    }
+  }
+
+  .order-summary-container {
+    padding: 16px;
+    border: 1px solid #ededed;
+    .order-summary-heading {
+      h4 {
+        font-size: 22px;
+        color: #444444;
+      }
+      margin-bottom: 20px;
+    }
+    .order-summary-list {
+      ul {
+        .order-summary-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+          color: #757575;
+        }
+        .place-order-btn-container {
+          margin-top: 10px;
+          .place-order-btn {
+            display: block;
+            margin-top: 16px;
+            text-align: center;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 15px;
+            width: 100%;
+            transition: 0.2s ease-in;
+            background: #3474d4;
+            color: #ffffff;
+            &:hover {
+              background: #444444;
+            }
+            &:disabled {
+              background: #444444;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+    .order-payment-form {
+      input,
+      .StripeElement {
+        display: block;
+        margin: 10px 0 14px 0;
+        max-width: 500px;
+        padding: 10px 14px;
+        font-size: 1em;
+        font-family: "Source Code Pro", monospace;
+        box-shadow: rgba(36, 36, 73, 0.253) 0px 1px 3px,
+          rgba(0, 0, 0, 0.158) 0px 1px 0px;
+        border: 0;
+        outline: 0;
+        border-radius: 0px;
+        background: white;
+      }
+
+      input::placeholder {
+        color: #626669;
+      }
+
+      input:focus,
+      .StripeElement--focus {
+        box-shadow: rgba(50, 50, 93, 0.109804) 0px 4px 6px,
+          rgba(0, 0, 0, 0.0784314) 0px 1px 3px;
+        -webkit-transition: all 150ms ease;
+        transition: all 150ms ease;
+      }
+
+      button {
+        white-space: nowrap;
+        border: 0;
+        outline: 0;
+        display: block;
+        height: 40px;
+        width: 100%;
+        line-height: 40px;
+        padding: 0 14px;
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
+          0 1px 3px rgba(0, 0, 0, 0.08);
+        color: #fff;
+        border-radius: 0px;
+        font-size: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        background-color: #3474d4;
+        text-decoration: none;
+        -webkit-transition: all 150ms ease;
+        transition: all 150ms ease;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        color: #fff;
+        cursor: pointer;
+        background-color: #7795f8;
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
+          0 3px 6px rgba(0, 0, 0, 0.08);
+      }
+    }
+    .order-deliver-info {
+      .order-deliver-btn-container {
+        button {
+          display: block;
+          margin-top: 16px;
+          text-align: center;
+          padding: 10px 20px;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 15px;
+          width: 100%;
+          transition: 0.2s ease-in;
+          background: #3474d4;
+          color: #ffffff;
+          &:hover {
+            background: #444444;
+          }
+        }
+      }
+    }
+  }
+}

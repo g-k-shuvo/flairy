@@ -1,0 +1,9 @@
+.pagination {
+  margin-top: 24px;
+  justify-content: end;
+  .page-item {
+    .page-link {
+      border-radius: 0px;
+    }
+  }
+}

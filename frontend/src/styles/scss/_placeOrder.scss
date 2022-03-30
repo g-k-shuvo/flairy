@@ -1,0 +1,105 @@
+#place-order-container {
+  .order-details {
+    margin-top: 42px;
+  }
+  .heading {
+    font-size: 22px;
+    color: #444444;
+    margin-bottom: 14px;
+  }
+  .shipping-info {
+    margin-bottom: 38px;
+    .shipping-address {
+      color: #757575;
+    }
+  }
+
+  .payment-info {
+    margin-bottom: 38px;
+    .payment-method {
+      color: #757575;
+    }
+  }
+
+  .order-items-info {
+    .heading {
+      margin-bottom: 30px;
+    }
+    .order-items-list {
+      ul {
+        li {
+          .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .product-details {
+              display: flex;
+              align-items: center;
+              .product-image {
+                img {
+                  width: 50px;
+                }
+                margin-right: 10px;
+              }
+            }
+
+            .qty-and-total {
+              p {
+                color: #777;
+              }
+            }
+          }
+          margin-bottom: 20px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+  }
+
+  .order-summary-container {
+    padding: 16px;
+    border: 1px solid #ededed;
+    .order-summary-heading {
+      h4 {
+        font-size: 22px;
+        color: #444444;
+      }
+      margin-bottom: 20px;
+    }
+    .order-summary-list {
+      ul {
+        .order-summary-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+          color: #757575;
+        }
+        .place-order-btn-container {
+          margin-top: 10px;
+          .place-order-btn {
+            display: block;
+            margin-top: 16px;
+            text-align: center;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 15px;
+            width: 100%;
+            transition: 0.2s ease-in;
+            background: #3474d4;
+            color: #ffffff;
+            &:hover {
+              background: #444444;
+            }
+            &:disabled {
+              background: #444444;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+  }
+}

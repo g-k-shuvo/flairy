@@ -1,0 +1,60 @@
+#profile-container {
+  .heading {
+    h3 {
+      font-size: 20px;
+      color: #444444;
+    }
+    margin-bottom: 36px;
+  }
+  .user-info {
+    .user-update-form {
+      form {
+        .form-group {
+          margin-bottom: 16px;
+          input {
+            border-radius: 0px;
+          }
+        }
+        .user-update-submit {
+          padding: 10px 20px;
+          background: #3474d4;
+          transition: 0.2s ease-out;
+          color: #fff;
+
+          &:hover {
+            background: #444444;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .order-info {
+    .order-table {
+      overflow-x: auto;
+      table {
+        thead {
+          tr {
+            th {
+              text-align: center;
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              text-align: center;
+              .order-details-link {
+                transition: 0.2s ease-in;
+                &:hover {
+                  color: #3474d4;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
