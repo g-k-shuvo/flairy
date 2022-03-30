@@ -21,7 +21,7 @@
 
 ### Golam Kibria
 
-> g-k-shuvo.github.io
-> facebook.com/shuvo.2k16
-> linkedin.com/in/g-k-shuvo
-> twitter.com/G_K_Shuvo
+- <https://g-k-shuvo.github.io>
+- <https://www.facebook.com/SHUVO.2K16>
+- <https://twitter.com/G_K_Shuvo>
+- <https://www.linkedin.com/in/g-k-shuvo>
