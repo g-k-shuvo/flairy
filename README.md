@@ -2,6 +2,11 @@
 
 > E-Commerce website built with the MERN stack & Redux.
 
+
+## Demo
+
+> - <https://youtu.be/j_L-6NNP_GY>
+
 ## Features
 
 - Full featured shopping cart
