@@ -41,8 +41,6 @@ const ProductDetailsContainer = ({ match }) => {
 
   useEffect(() => {
     if (successProductReview) {
-      setRating(0);
-      setComment("");
       toast.success("Review Added!", {
         position: "top-right",
         autoClose: 2000,
@@ -52,12 +50,17 @@ const ProductDetailsContainer = ({ match }) => {
         draggable: true,
         progress: undefined,
       });
-    }
 
-    if (!product._id || product._id !== match.params.id) {
-      dispatch(listProductDetails(match.params.id));
+      setRating(0);
+      setComment("");
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
+
+    dispatch(listProductDetails(match.params.id));
+
+    // if (!product._id || product._id !== match.params.id) {
+    //   dispatch(listProductDetails(match.params.id));
+    // }
   }, [dispatch, match, successProductReview]);
 
   const addToCartHandler = () => {
@@ -90,7 +93,7 @@ const ProductDetailsContainer = ({ match }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
-      createProductReview(product._id, {
+      createProductReview(match.params.id, {
         rating,
         comment,
       })
