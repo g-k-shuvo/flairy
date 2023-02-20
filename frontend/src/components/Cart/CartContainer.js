@@ -12,8 +12,6 @@ const CartContainer = ({ history }) => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  console.log(cartItems);
-
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
     toast.success("Removed from cart!", {
@@ -32,12 +30,12 @@ const CartContainer = ({ history }) => {
   };
 
   return (
-    <section id="cart-container" className="section-padding">
+    <section id='cart-container' className='section-padding'>
       <Container>
-        <Row className="gy-4">
+        <Row className='gy-4'>
           <Col md={8}>
-            <div className="cart-table">
-              <table className="f-table">
+            <div className='cart-table'>
+              <table className='f-table'>
                 <thead>
                   <tr>
                     <th>Product</th>
@@ -50,30 +48,30 @@ const CartContainer = ({ history }) => {
                   {cartItems.length === 0 ? (
                     <tr>
                       <td colSpan={4}>
-                        Your cart is empty! Go to <Link to="/shop">Shop</Link>
+                        Your cart is empty! Go to <Link to='/shop'>Shop</Link>
                       </td>
                     </tr>
                   ) : (
                     cartItems.map((item) => (
                       <tr key={item.product}>
-                        <td className="product">
-                          <div className="product-container">
-                            <div className="product-image">
-                              <img src={item.image} alt="" />
+                        <td className='product'>
+                          <div className='product-container'>
+                            <div className='product-image'>
+                              <img src={item.image} alt='' />
                             </div>
-                            <div className="product-details">
+                            <div className='product-details'>
                               <h5>{item.name}</h5>
                             </div>
                           </div>
                         </td>
                         <td>
-                          <div className="product-price">${item.price}</div>
+                          <div className='product-price'>${item.price}</div>
                         </td>
                         <td>
-                          <div className="product-quantity">
+                          <div className='product-quantity'>
                             <Form.Control
-                              as="select"
-                              className="qty-selector"
+                              as='select'
+                              className='qty-selector'
                               value={item.selectedQuantity}
                               onChange={(e) =>
                                 dispatch(
@@ -95,13 +93,13 @@ const CartContainer = ({ history }) => {
                           </div>
                         </td>
                         <td>
-                          <div className="product-remove">
+                          <div className='product-remove'>
                             <button
                               onClick={() =>
                                 removeFromCartHandler(item.product)
                               }
                             >
-                              <FaTrash size={"18px"} color="#444444" />
+                              <FaTrash size={"18px"} color='#444444' />
                             </button>
                           </div>
                         </td>
@@ -111,14 +109,14 @@ const CartContainer = ({ history }) => {
                 </tbody>
               </table>
             </div>
-            <div className="continue-shopping-link">
-              <Link to="/shop">Continue Shopping</Link>
+            <div className='continue-shopping-link'>
+              <Link to='/shop'>Continue Shopping</Link>
             </div>
           </Col>
           <Col md={4}>
-            <div className="cart-summary">
-              <div className="cart-summary-container">
-                <div className="items">
+            <div className='cart-summary'>
+              <div className='cart-summary-container'>
+                <div className='items'>
                   <h4>Items</h4>
                   <h4>
                     {cartItems.reduce(
@@ -127,11 +125,11 @@ const CartContainer = ({ history }) => {
                     )}
                   </h4>
                 </div>
-                <div className="tax">
+                <div className='tax'>
                   <h4>Tax</h4>
                   <h4>5%</h4>
                 </div>
-                <div className="subtotal">
+                <div className='subtotal'>
                   <h4>Sub-Total</h4>
                   <h4>
                     $
@@ -144,7 +142,7 @@ const CartContainer = ({ history }) => {
                   </h4>
                 </div>
               </div>
-              <div className="checkout-btn-container">
+              <div className='checkout-btn-container'>
                 <button
                   disabled={cartItems.length === 0}
                   onClick={checkoutHandler}

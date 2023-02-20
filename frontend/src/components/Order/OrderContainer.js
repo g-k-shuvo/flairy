@@ -67,7 +67,6 @@ const OrderContainer = ({ match, history }) => {
   }, [dispatch, orderId, successPay, successDeliver, order]);
 
   const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult);
     dispatch(payOrder(orderId, paymentResult));
   };
 
@@ -85,29 +84,29 @@ const OrderContainer = ({ match, history }) => {
   };
 
   return (
-    <div id="order-container" className="section-padding">
+    <div id='order-container' className='section-padding'>
       <Container>
         {loading ? (
           <Loader />
         ) : error ? (
-          <Message variant="danger">{error}</Message>
+          <Message variant='danger'>{error}</Message>
         ) : (
           <Row>
             <Col md={8}>
-              <div className="order-details">
-                <div className="order-heading">
+              <div className='order-details'>
+                <div className='order-heading'>
                   <h3>Order: #{order._id}</h3>
                 </div>
-                <div className="shipping-info">
-                  <h3 className="heading">Shipping</h3>
-                  <p className="user-name">Name: {order.user.name}</p>
-                  <p className="user-email">
+                <div className='shipping-info'>
+                  <h3 className='heading'>Shipping</h3>
+                  <p className='user-name'>Name: {order.user.name}</p>
+                  <p className='user-email'>
                     Email:{" "}
                     <a href={`mailto:${order.user.email}`}>
                       {order.user.email}
                     </a>
                   </p>
-                  <p className="shipping-address">
+                  <p className='shipping-address'>
                     Address:
                     {order.shippingAddress.address},{" "}
                     {order.shippingAddress.city},{" "}
@@ -115,50 +114,50 @@ const OrderContainer = ({ match, history }) => {
                     {order.shippingAddress.country}
                   </p>
                 </div>
-                <div className="delivery-info">
+                <div className='delivery-info'>
                   {order.isDelivered ? (
-                    <Message variant="success">
+                    <Message variant='success'>
                       Delivered on {order.deliveredAt}
                     </Message>
                   ) : (
-                    <Message variant="danger">Not Delivered</Message>
+                    <Message variant='danger'>Not Delivered</Message>
                   )}
                 </div>
                 <hr />
 
-                <div className="payment-info">
-                  <h3 className="heading">Payment Method</h3>
-                  <p className="payment-method">{order.paymentMethod}</p>
+                <div className='payment-info'>
+                  <h3 className='heading'>Payment Method</h3>
+                  <p className='payment-method'>{order.paymentMethod}</p>
                 </div>
-                <div className="isPaid-info">
+                <div className='isPaid-info'>
                   {order.isPaid ? (
-                    <Message variant="success">Paid on {order.paidAt}</Message>
+                    <Message variant='success'>Paid on {order.paidAt}</Message>
                   ) : (
-                    <Message variant="danger">Not Paid</Message>
+                    <Message variant='danger'>Not Paid</Message>
                   )}
                 </div>
                 <hr />
-                <div className="order-items-info">
-                  <h3 className="heading">Order Items</h3>
-                  <div className="order-items-list">
+                <div className='order-items-info'>
+                  <h3 className='heading'>Order Items</h3>
+                  <div className='order-items-list'>
                     {order.orderItems.length === 0 ? (
                       <Message>Order is empty</Message>
                     ) : (
                       <ul>
                         {order.orderItems.map((item, index) => (
                           <li key={index}>
-                            <div className="order-item">
-                              <div className="product-details">
-                                <div className="product-image">
+                            <div className='order-item'>
+                              <div className='product-details'>
+                                <div className='product-image'>
                                   <img src={item.image} alt={item.name} />
                                 </div>
-                                <div className="product-link">
+                                <div className='product-link'>
                                   <Link to={`/product/${item.product}`}>
                                     {item.name}
                                   </Link>
                                 </div>
                               </div>
-                              <div className="qty-and-total">
+                              <div className='qty-and-total'>
                                 <p>
                                   {item.selectedQuantity} x ${item.price} = $
                                   {Number(
@@ -176,51 +175,51 @@ const OrderContainer = ({ match, history }) => {
               </div>
             </Col>
             <Col md={4}>
-              <div className="order-summary-container">
-                <div className="order-summary-heading">
+              <div className='order-summary-container'>
+                <div className='order-summary-heading'>
                   <h4>Order Summary</h4>
                 </div>
-                <div className="order-summary-list">
+                <div className='order-summary-list'>
                   <ul>
-                    <li className="order-summary-item">
-                      <div className="info">
+                    <li className='order-summary-item'>
+                      <div className='info'>
                         <p>Items</p>
                       </div>
-                      <div className="amount">${order.itemsPrice}</div>
+                      <div className='amount'>${order.itemsPrice}</div>
                     </li>
-                    <li className="order-summary-item">
-                      <div className="info">
+                    <li className='order-summary-item'>
+                      <div className='info'>
                         <p>Shipping</p>
                       </div>
-                      <div className="amount">${order.shippingPrice}</div>
+                      <div className='amount'>${order.shippingPrice}</div>
                     </li>
-                    <li className="order-summary-item">
-                      <div className="info">
+                    <li className='order-summary-item'>
+                      <div className='info'>
                         <p>Tax</p>
                       </div>
-                      <div className="amount">${order.taxPrice}</div>
+                      <div className='amount'>${order.taxPrice}</div>
                     </li>
-                    <li className="order-summary-item">
-                      <div className="info">
+                    <li className='order-summary-item'>
+                      <div className='info'>
                         <p>Total</p>
                       </div>
-                      <div className="amount">${order.totalPrice}</div>
+                      <div className='amount'>${order.totalPrice}</div>
                     </li>
                   </ul>
                 </div>
                 <hr />
-                <div className="order-payment-form">
+                <div className='order-payment-form'>
                   {!order.isPaid && (
                     <StripeCheckout order={order} successPay={successPay} />
                   )}
                 </div>
-                <div className="order-deliver-info">
+                <div className='order-deliver-info'>
                   {loadingDeliver && <Loader />}
                   {userInfo &&
                     userInfo.isAdmin &&
                     order.isPaid &&
                     !order.isDelivered && (
-                      <div className="order-deliver-btn-container">
+                      <div className='order-deliver-btn-container'>
                         <button onClick={deliverHandler}>
                           Mark As Delivered
                         </button>

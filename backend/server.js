@@ -11,8 +11,12 @@ import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 
 import Stripe from "stripe";
+// const stripe = new Stripe(
+//   "sk_test_51KMZxrFQgdv7KJQwJLNCFYXxEGMspSbdh0zJRV6TLnMeGdYHFRNBQD7QrqR9KBXDTpZKvpgHgaMxggPlAgkB98ZR00KyIyv0EI"
+// );
+
 const stripe = new Stripe(
-  "sk_test_51KMZxrFQgdv7KJQwJLNCFYXxEGMspSbdh0zJRV6TLnMeGdYHFRNBQD7QrqR9KBXDTpZKvpgHgaMxggPlAgkB98ZR00KyIyv0EI"
+  "sk_test_51LpkpWC4HsoTkYgsmWYv0UowANtW2xrj7WPgOpvdg5w3G2M8Bpp07u5qKS5Ji8bQadRASbDWYy6Wd9mJIiGrqoUy00IhPnk19N"
 );
 
 dotenv.config();

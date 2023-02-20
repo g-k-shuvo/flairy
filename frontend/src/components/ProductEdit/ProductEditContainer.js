@@ -86,14 +86,20 @@ const ProductEditContainer = ({ match, history }) => {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
         },
         (error) => {
-          console.log(error);
+          toast.error(error, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         },
         async () => {
           await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log(downloadURL);
             setImages((prevState) => [...prevState, downloadURL]);
           });
         }
@@ -101,7 +107,17 @@ const ProductEditContainer = ({ match, history }) => {
     });
     Promise.all(promises)
       .then(() => setImageUploading(false))
-      .catch((err) => console.log(err.code));
+      .catch((err) =>
+        toast.error(err, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+      );
   };
 
   const handleImageChange = (e) => {
@@ -178,67 +194,67 @@ const ProductEditContainer = ({ match, history }) => {
   const sizeArray = ["S", "M", "L", "XL", "XXL"];
 
   return (
-    <section id="product-edit-container" className="section-padding">
+    <section id='product-edit-container' className='section-padding'>
       <Container>
-        <div className="back-btn-container">
-          <Link to="/admin/productlist" className="main-btn">
+        <div className='back-btn-container'>
+          <Link to='/admin/productlist' className='main-btn'>
             Go Back
           </Link>
         </div>
-        <Row className="justify-content-center">
+        <Row className='justify-content-center'>
           <Col lg={6} md={12} sm={12} xs={12}>
-            <div className="heading">
+            <div className='heading'>
               <h3>Edit Product</h3>
             </div>
             {loadingUpdate && <Loader />}
-            {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
+            {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
             {loading ? (
               <Loader />
             ) : error ? (
-              <Message variant="danger">{error}</Message>
+              <Message variant='danger'>{error}</Message>
             ) : (
-              <div className="product-edit-form">
+              <div className='product-edit-form'>
                 <Form onSubmit={submitHandler}>
-                  <Form.Group controlId="name">
+                  <Form.Group controlId='name'>
                     <Form.Label>Name</Form.Label>
                     <Form.Control
-                      type="name"
-                      placeholder="Enter name"
+                      type='name'
+                      placeholder='Enter name'
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     ></Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId="price">
+                  <Form.Group controlId='price'>
                     <Form.Label>Price</Form.Label>
                     <Form.Control
-                      type="number"
-                      placeholder="Enter price"
+                      type='number'
+                      placeholder='Enter price'
                       min={0}
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                     ></Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId="description">
+                  <Form.Group controlId='description'>
                     <Form.Label>Description</Form.Label>
                     <Form.Control
-                      as="textarea"
+                      as='textarea'
                       rows={3}
-                      placeholder="Enter description"
+                      placeholder='Enter description'
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                     ></Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId="image">
+                  <Form.Group controlId='image'>
                     <Form.Label>Images</Form.Label>
                     {imageUploading ? (
                       <Loader />
                     ) : (
-                      <div className="image-input-container">
+                      <div className='image-input-container'>
                         <Form.File
-                          id="image-file"
+                          id='image-file'
                           multiple
                           onChange={handleImageChange}
                         ></Form.File>
@@ -255,13 +271,13 @@ const ProductEditContainer = ({ match, history }) => {
                     {images.length !== 0 && (
                       <>
                         <hr />
-                        <div className="image-container">
+                        <div className='image-container'>
                           {images.map((image, index) => (
                             <img
                               key={index}
-                              className="uploaded-image"
+                              className='uploaded-image'
                               src={image}
-                              alt=""
+                              alt=''
                             />
                           ))}
                         </div>
@@ -269,28 +285,28 @@ const ProductEditContainer = ({ match, history }) => {
                     )}
                   </Form.Group>
 
-                  <Form.Group controlId="category">
+                  <Form.Group controlId='category'>
                     <Form.Label>Category</Form.Label>
                     <Form.Control
-                      as="select"
-                      placeholder="Select Category"
+                      as='select'
+                      placeholder='Select Category'
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
                     >
-                      <option value="All Categories">All Categories</option>
-                      <option value="Woman Wear">Woman Wear</option>
-                      <option value="Man Wear">Man Wear</option>
-                      <option value="Children Wear">Children Wear</option>
-                      <option value="Accessories">Accessories</option>
+                      <option value='All Categories'>All Categories</option>
+                      <option value='Woman Wear'>Woman Wear</option>
+                      <option value='Man Wear'>Man Wear</option>
+                      <option value='Children Wear'>Children Wear</option>
+                      <option value='Accessories'>Accessories</option>
                     </Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId="colors">
+                  <Form.Group controlId='colors'>
                     <Form.Label>Select Colors</Form.Label>
                     {colorArray.map((color, index) => (
                       <Form.Check
                         key={index}
-                        type="checkbox"
+                        type='checkbox'
                         value={color}
                         label={color}
                         checked={colors.includes(color)}
@@ -299,12 +315,12 @@ const ProductEditContainer = ({ match, history }) => {
                     ))}
                   </Form.Group>
 
-                  <Form.Group controlId="sizes">
+                  <Form.Group controlId='sizes'>
                     <Form.Label>Select Sizes</Form.Label>
                     {sizeArray.map((size, index) => (
                       <Form.Check
                         key={index}
-                        type="checkbox"
+                        type='checkbox'
                         value={size}
                         label={size}
                         checked={sizes.includes(size)}
@@ -313,18 +329,18 @@ const ProductEditContainer = ({ match, history }) => {
                     ))}
                   </Form.Group>
 
-                  <Form.Group controlId="countInStock">
+                  <Form.Group controlId='countInStock'>
                     <Form.Label>Count In Stock</Form.Label>
                     <Form.Control
-                      type="number"
+                      type='number'
                       min={0}
-                      placeholder="Enter countInStock"
+                      placeholder='Enter countInStock'
                       value={countInStock}
                       onChange={(e) => setCountInStock(e.target.value)}
                     ></Form.Control>
                   </Form.Group>
 
-                  <button type="submit" className="product-edit-btn">
+                  <button type='submit' className='product-edit-btn'>
                     Update
                   </button>
                 </Form>
